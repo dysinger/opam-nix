@@ -54,6 +54,16 @@ let
       nativeBuildInputs = oa.nativeBuildInputs ++ [ pkgs.pkg-config ];
     };
 
+    conf-pkg-config = oa: {
+      nativeBuildInputs = oa.nativeBuildInputs ++ [ pkgs.pkg-config ];
+      buildPhase = ''
+        mkdir -p $out
+      '';
+      installPhase = ''
+        mkdir -p $out
+      '';
+    };
+
     caqti = oa: {
       nativeBuildInputs = oa.nativeBuildInputs ++ [ pkgs.darwin.sigtool ];
     };
